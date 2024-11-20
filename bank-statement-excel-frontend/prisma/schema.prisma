@@ -1,0 +1,27 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model bankStatement {
+  id        Int      @default(autoincrement()) @id 
+  transId     String 
+  transactionDate   DateTime   //Date 
+  transactionPostedDate   DateTime?  //   
+  valueDate	 DateTime?  //Value Dt	
+  chequeOrRefNo   String?   //Chq./Ref.No. 
+  withdrawalAmt   String?  //Withdrawal Amt. 
+  depositAmt	   String? //Deposit Amt.	
+  closingBalance   String?  //Closing Balance 
+  transactionRemarks	   String? //Narration	
+  bankId Int
+}
+
+
